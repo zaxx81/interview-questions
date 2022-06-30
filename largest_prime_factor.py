@@ -10,7 +10,7 @@ def timer_func(func):
         t1 = time()
         result = func(*args, **kwargs)
         t2 = time()
-        print(f'Function {func.__name__!r} executed in {(t2-t1):.4f}s')
+        print(f'Function executed in {(t2-t1):.4f}s')
         return result
     return wrap_func
 
@@ -70,29 +70,14 @@ def smallest_prime_factor(n):
 
 
 @timer_func
-def test_case():
-    # print(is_prime(999998727899999)) # largest 12-digit prime number
-    # print(is_prime(1000000000100011)) # first 16-digit prime number
-    # print(is_prime(10089886811898868001)) # first 20-digit prime number
-    
-    # print(smallest_prime_factor(473)) # => 11
+def test_case(arg):
+    return largest_prime_factor(arg)
 
-    
-    # print(smallest_prime_factor(3784)) # => 2
-    # print(smallest_prime_factor(1892)) # => 2
-    # print(smallest_prime_factor(946)) # => 2
-    # print(smallest_prime_factor(473)) # => 11
-    # print(smallest_prime_factor(43)) # => 43
-    # print(largest_prime_factor(3784)) # => 43
-    # print(largest_prime_factor(600851475143)) # => 6857
-    # print(largest_prime_factor(6008514751435)) # => 171671850041
-    # print(largest_prime_factor(25698751364526)) # => 328513
 
-    # print(largest_prime_factor(999999999999)) #12-digit arg is fast
-    # print(largest_prime_factor(9999999999999)) #13-digit arg
-    # print(largest_prime_factor(9999999999999)) #14-digit arg
-    # print(largest_prime_factor(9999999999999)) #15-digit arg
-    # print(largest_prime_factor(9999999999999)) #16-digit arg
-    print(largest_prime_factor(99999999999999999999)) #20-digit arg
-
-test_case()
+print(test_case(3784) == 43)
+print(test_case(600851475143) == 6857)
+print(test_case(6008514751435) == 171671850041)
+print(test_case(25698751364526) == 328513)
+print(test_case(54654681351684) == 4554556779307) 
+print(test_case(54684681352168) == 319831)
+print(test_case(9007199254740991) == 20394401)
