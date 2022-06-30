@@ -30,9 +30,9 @@ def largest_prime_factor(n):
         if temp == upper_factor:
             return upper_factor
         aggregate *= temp
-        upper_factor = int(upper_factor / temp)
+        upper_factor = upper_factor / temp
     
-    return upper_factor
+    return int(upper_factor)
 
 # Determines if i is a factor of n
 def is_factor(n, i):
@@ -81,3 +81,4 @@ print(test_case(25698751364526) == 328513)
 print(test_case(54654681351684) == 4554556779307) 
 print(test_case(54684681352168) == 319831)
 print(test_case(9007199254740991) == 20394401)
+print(test_case(900719925474480991) == 4952856173)
