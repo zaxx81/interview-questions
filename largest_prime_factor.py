@@ -14,7 +14,13 @@ def timer_func(func):
         return result
     return wrap_func
 
-# 
+# The largest prime factor of n is as follows:
+# 1. upper_factor = n
+# 2. loop through:
+# 2a. Find smallest_prime_number () of upper_factor
+# 2b. Multiple aggregate by the smallest_prime_number ()
+# 2c. Update upper_factor = upper_factor / smallest_prime_number ()
+# 2d. Loop until smallest_prime_number() == upper_factor
 def largest_prime_factor(n):
     aggregate = 1
     upper_factor = n
@@ -25,10 +31,6 @@ def largest_prime_factor(n):
             return upper_factor
         aggregate *= temp
         upper_factor = int(upper_factor / temp)
-        
-        # print(aggregate)
-        # print(f'Smallest Prime Factor: {temp}')
-        # print(f'Upper Factor: {upper_factor}')
     
     return upper_factor
 
