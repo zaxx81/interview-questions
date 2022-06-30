@@ -1,6 +1,3 @@
-import math
-from re import I
-
 from time import time
   
 def timer_func(func):
