@@ -11,8 +11,7 @@ def timer_func(func):
         return result
     return wrap_func
 
-# For computational speed, assumes n is not a prime number
-@ timer_func
+# 
 def largest_prime_factor(n):
     aggregate = 1
     upper_factor = n
@@ -60,4 +59,13 @@ def smallest_prime_factor(n):
             return i
     return 1
 
-print(largest_prime_factor(600851475143))
+
+@timer_func
+def test_case():
+    # print(is_prime(999998727899999)) # largest 12-digit prime number
+    # print(is_prime(1000000000100011)) # first 16-digit prime number
+    # print(is_prime(10089886811898868001)) # first 20-digit prime number
+    
+    print(largest_prime_factor(600851475143))
+
+test_case()
