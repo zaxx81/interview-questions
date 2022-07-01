@@ -1,8 +1,8 @@
 from time import time
   
+# This function shows the execution time of 
+# the function object passed
 def timer_func(func):
-    # This function shows the execution time of 
-    # the function object passed
     def wrap_func(*args, **kwargs):
         t1 = time()
         result = func(*args, **kwargs)
@@ -31,10 +31,6 @@ def largest_prime_factor(n):
     
     return int(upper_factor)
 
-# Determines if i is a factor of n
-def is_factor(n, i):
-    return not n%i
-
 # Determines if n is a prime number using 6k+-1 optimization, aka Primality test
 def is_prime(n):
     if n <= 3:
@@ -55,22 +51,28 @@ def is_prime(n):
 
 # Finds the smallest prime factor of n
 def smallest_prime_factor(n):
+    # If even return 2
     if n % 2 == 0:
         return 2
 
+    # Interate from 3 to sqrt(N)
     i = 3
     while(i * i <= n):
+        # returns i if it is a factor of n
         if n % i == 0:
             return i
+        # returns next odd number
         i +=2
+    # If no prime factors return n
     return n
 
-
+# Test cases with timer
 @timer_func
 def test_case(arg):
     return largest_prime_factor(arg)
 
-
+print(test_case(2) == 2)
+print(test_case(3) == 3)
 print(test_case(3784) == 43)
 print(test_case(600851475143) == 6857)
 print(test_case(6008514751435) == 171671850041)
